@@ -1,0 +1,44 @@
+{
+    "primary_model": {
+        "name": "Multinomial Naive Bayes",
+        "accuracy": 97.1,
+        "precision": 100.0,
+        "recall": 77.1,
+        "f1_score": 87.07,
+        "confusion_matrix": {
+            "true_negative": 903,
+            "false_positive": 0,
+            "false_negative": 30,
+            "true_positive": 101
+        }
+    },
+    "comparison": [
+        {
+            "model": "Multinomial Naive Bayes",
+            "accuracy": 97.1,
+            "precision": 100.0,
+            "recall": 77.1,
+            "f1_score": 87.07
+        },
+        {
+            "model": "Logistic Regression",
+            "accuracy": 96.03,
+            "precision": 96.88,
+            "recall": 70.99,
+            "f1_score": 81.94
+        },
+        {
+            "model": "Support Vector Machine",
+            "accuracy": 98.07,
+            "precision": 97.44,
+            "recall": 87.02,
+            "f1_score": 91.94
+        }
+    ],
+    "dataset_stats": {
+        "total_records": 5169,
+        "ham_count": 4516,
+        "spam_count": 653,
+        "vocab_size": 3000
+    }
+}
