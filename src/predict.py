@@ -1,4 +1,4 @@
-﻿"""
+"""
 =============================================================================
 MODULE: predict.py
 PROJECT: Spam Email / SMS Detection System
@@ -97,12 +97,18 @@ class SpamPredictor:
         transformed_features = self.vectorizer.transform([cleaned_text]).toarray()
 
         # Step 3: Predict class label using trained model
-        prediction_class = self.model.predict(transformed_features)[0]
+        prediction_class = int(self.model.predict(transformed_features)[0])
         
-        # Step 4: Calculate prediction probabilities
+        # Step 4: Calculate prediction probabilities with dynamic class index resolution
         probabilities = self.model.predict_proba(transformed_features)[0]
-        ham_prob = float(probabilities[0])
-        spam_prob = float(probabilities[1])
+        
+        # Resolve class indices dynamically from model.classes_
+        classes_list = list(self.model.classes_)
+        ham_idx = classes_list.index(0) if 0 in classes_list else 0
+        spam_idx = classes_list.index(1) if 1 in classes_list else 1
+
+        ham_prob = float(probabilities[ham_idx])
+        spam_prob = float(probabilities[spam_idx])
 
         is_spam = (prediction_class == 1)
         confidence = (spam_prob if is_spam else ham_prob) * 100

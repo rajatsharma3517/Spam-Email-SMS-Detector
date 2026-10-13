@@ -22,10 +22,10 @@
         },
         {
             "model": "Logistic Regression",
-            "accuracy": 96.03,
-            "precision": 96.88,
-            "recall": 70.99,
-            "f1_score": 81.94
+            "accuracy": 96.13,
+            "precision": 96.91,
+            "recall": 71.76,
+            "f1_score": 82.46
         },
         {
             "model": "Support Vector Machine",
